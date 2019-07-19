@@ -1,0 +1,26 @@
+{
+  "name": "donutclicker",
+  "version": "1.0.0",
+  "description": "A Donut Clicker game for the web",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaineRaid/Donut-Clicker.git"
+  },
+  "author": "SympleeStudios & KleinGames",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/KaineRaid/Donut-Clicker/issues"
+  },
+  "homepage": "https://github.com/KaineRaid/Donut-Clicker#readme",
+  "devDependencies": {
+    "jquery": "^3.4.1",
+    "sizzle": "^2.3.4",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6"
+  },
+  "dependencies": {}
+}
