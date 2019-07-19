@@ -1,10 +1,13 @@
 import $ from 'jquery';
 import { Shop } from './shop/Manager.js';
 import { Game } from './game/Manager.js';
+import { Assets } from './assets/Manager.js';
 
 $(() => {
 	var GameObject = $('#dcg');
 	GameObject.attr('id', 'loaded-donut-clicker');
+
+	var AssetManager = new Assets();
 
 	var InfoPane = $('<div class="info"></div>');
 	var GamePane = $('<div class="game"></div>');
@@ -20,6 +23,14 @@ $(() => {
 
 	setInterval(() => {
 		//Call Game manager to add DPS etc.
-		ShopManager.updateStore();
+		GameManager.update();
+		GameManager.display();
 	}, 1000);
+
+	setInterval(() => {
+		ShopManager.displayStore();
+		GameManager.display();
+
+		AssetManager.update();
+	}, 1000 / 60); //60fps;
 });

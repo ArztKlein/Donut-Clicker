@@ -37,6 +37,7 @@ export class Building {
 		this.purchaced = 0;
 		this.unlocked = false;
 		this.unlockedHandlers = [];
+		this.change = true;
 	}
 
 	get purchacedCount() {
@@ -57,7 +58,7 @@ export class Building {
 	}
 
 	priceOf(count) {
-		var p = this.currentPrice();
+		var p = this.currentPrice;
 		var c = (this.increasePercentage + 100) / 100; //percentage
 		for (var i = 0; i < count; i++) {
 			p *= c;
@@ -67,10 +68,12 @@ export class Building {
 
 	buy(number) {
 		this.purchaced += number;
+		this.change = true;
 	}
 
 	sell(number) {
 		this.purchaced -= number;
+		this.change = true;
 	}
 
 	addUnlockHandler(handler) {
@@ -86,11 +89,10 @@ export class Building {
 		}
 	}
 
-	get html() {
+	html(e) {
 		var b = this;
 
 		var nl = [
-			'icon: ' + b.assetIndex,
 			'intn: ' + b.internalName,
 			'name: ' + b.name,
 			'desc: ' + b.description,
@@ -99,13 +101,17 @@ export class Building {
 			'unl@: ' + b.unlockAtDonuts,
 			'unlk: ' + b.unlocked,
 			'prsi: ' + b.perSecondIncrease,
+			'ownd: ' + b.purchacedCount,
 			'edit this in Building.js'
 		];
-		var n = '';
+		var n = 'icon: <img asset="' + b.assetIndex + '"/> \n<pre>';
 		nl.forEach((l) => {
 			n += l + '\n';
 		});
+		n += '</pre>';
+		if (this.change) e.html(n);
 
-		return '<pre>' + n + '</pre>';
+		this.change = false;
+		return e;
 	}
 }

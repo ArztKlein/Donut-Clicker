@@ -12,14 +12,24 @@ export class Shop {
 		console.log('Shop loaded!');
 	}
 
-	updateStore() {
-		this.pane.empty();
+	displayStore() {
+		this.game.shopDPS = this.dps;
 		this.Buyable.forEach((b) => {
-			var e = $(b.html); //Create a jQuery selector of the source so we can add event handlers on to it.
-			this.pane.append(e); //Add it to the DOM
+			var e = $('.' + b.internalName, this.pane);
+
+			if (e.length == 0) {
+				e = $('<div></div>'); //Create a jQuery selector of the source so we can add event handlers on to it.
+				e.addClass(b.internalName);
+				this.pane.append(e); //Add it to the DOM
+			}
+			e = b.html(e);
+
 			if (this.game.donuts >= b.currentPrice) {
 				//We can buy it, lets style it like we can
 				e.addClass('affordable');
+			}
+			else {
+				e.removeClass('affordable');
 			}
 
 			e.click(() => {
@@ -45,4 +55,3 @@ export class Shop {
 		return total;
 	}
 }
-``;

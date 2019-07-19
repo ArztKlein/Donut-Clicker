@@ -17,11 +17,11 @@ export class Baker extends Building {
 	}
 
 	get basePrice() {
-		return 500.0;
+		return 5.0;
 	}
 
 	get unlockAtDonuts() {
-		return 499;
+		return 1;
 	}
 
 	get perSecondIncrease() {
