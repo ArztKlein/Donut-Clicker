@@ -17,13 +17,13 @@ export class Shop {
 		this.Buyable.forEach((b) => {
 			var e = $(b.html); //Create a jQuery selector of the source so we can add event handlers on to it.
 			this.pane.append(e); //Add it to the DOM
-			if (this.game.donuts >= b.currentPrice()) {
+			if (this.game.donuts >= b.currentPrice) {
 				//We can buy it, lets style it like we can
 				e.addClass('affordable');
 			}
 
 			e.click(() => {
-				if (this.game.donuts >= b.currentPrice()) {
+				if (this.game.donuts >= b.currentPrice) {
 					this.purchace(1, b);
 				}
 			});
@@ -33,6 +33,7 @@ export class Shop {
 	purchace(number, buyable) {
 		var price = buyable.priceOf(number);
 		buyable.buy(number);
+		this.game.donuts -= price;
 	}
 
 	//Returns the DPS of what has been brought.
@@ -44,3 +45,4 @@ export class Shop {
 		return total;
 	}
 }
+``;
