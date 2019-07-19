@@ -42,8 +42,10 @@ export class Shop {
 
 	purchace(number, buyable) {
 		var price = buyable.priceOf(number);
-		buyable.buy(number);
-		this.game.donuts -= price;
+		if (price <= this.game.donuts) {
+			buyable.buy(number);
+			this.game.donuts -= price;
+		}
 	}
 
 	//Returns the DPS of what has been brought.

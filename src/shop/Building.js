@@ -50,7 +50,7 @@ export class Building {
 		for (var i = 0; i < this.purchacedCount; i++) {
 			p *= c;
 		}
-		return p;
+		return Math.ceil(p);
 	}
 
 	get dps() {
@@ -60,10 +60,10 @@ export class Building {
 	priceOf(count) {
 		var p = this.currentPrice;
 		var c = (this.increasePercentage + 100) / 100; //percentage
-		for (var i = 0; i < count; i++) {
+		for (var i = 0; i < count - 1; i++) {
 			p *= c;
 		}
-		return p;
+		return Math.ceil(p);
 	}
 
 	buy(number) {
