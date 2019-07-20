@@ -1,0 +1,28 @@
+/*===================================TEXT================================ */
+.heading{
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 0px;
+}
+.subheading{
+  line-height: 0px;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 30px;
+}
+
+.upgradeButton{
+  align: right;
+  width: 50px;
+  vertical-align: top;
+}
+
+.donut{
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  align:right;
+  width: 500px;
+}
