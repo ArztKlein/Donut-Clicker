@@ -3,7 +3,7 @@
 ## Compiling
 
 ```sh
-$ git clone https://github.com/KaineRaid/Donut-Clicker.git
+$ git clone https://github.com/ArztKlein/Donut-Clicker.git
 $ cd Dount-Clicker
 $ npm run build
 ```
